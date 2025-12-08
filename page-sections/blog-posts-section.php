@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
          style="<?php if($background_image):?>background-image: url('<?php echo $background_image['url'] ?>'); <?endif;?>padding-top: <?php echo $padding_top ?>rem; padding-bottom: <?php echo $padding_bottom ?>rem"
 >
     <div class="container style--<?php echo $content_section_style; ?>">
-        <div class="blog-posts-section__content alignment--<?php echo $text_alignment ?>">
+        <div class="blog-posts-section__content">
             <!-- Header -->
             <?php if ( $header ) {
                 include get_stylesheet_directory() . '/components/section-header.php';
