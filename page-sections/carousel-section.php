@@ -2,6 +2,8 @@
 if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly.
 }
+    $section_class="carousel-section";
+
     // Header & Body Text
     include get_stylesheet_directory() . '/page-sections/section-fields/section-text.php';
 
@@ -45,18 +47,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 
             <div class="carousel-section__text">
                 <!-- Header -->
-                <?php if ( $header ) : ?>
-                    <<?php echo esc_attr( $header_style ); ?> class="carousel-section__header font--<?php echo esc_attr($font_colour) ?>">
-                        <?php echo esc_html( $header ); ?>
-                    </<?php echo esc_attr( $header_style ); ?>>
-                <?php endif; ?>
+                <?php if ( $header ) {
+                    include get_stylesheet_directory() . '/components/section-header.php';
+                } ?>
 
                 <!-- WYSIWYG -->
-                <?php if ( $wysiwyg_text ) : ?>
-                    <div class="carousel-section__wysiwyg font--<?php echo esc_attr($font_colour) ?>">
-                        <?php echo wp_kses_post( $wysiwyg_text ); ?>
-                    </div>
-                <?php endif; ?>
+                <?php if ( $wysiwyg_text ) {
+                    include get_stylesheet_directory() . '/components/section-wysiwyg.php';
+                } ?>
             </div>
 
             <!-- Carousel -->
