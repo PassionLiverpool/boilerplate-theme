@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function mytheme_social_media_shortcode( $atts ) {
     $atts = shortcode_atts( [
-        'color' => 'white',
+        'color' => 'black', // Set default here
     ], $atts, 'social_media' );
 
     // Make shortcode attributes available inside the included component
