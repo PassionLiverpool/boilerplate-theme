@@ -1,4 +1,5 @@
 <?php
+    $placeholder_image = get_stylesheet_directory_uri() . '/assets/img/placeholder-images/placeholder-image-team-member.png';
     $featured_image = get_the_post_thumbnail( $team_member->ID, 'medium', false, array('loading'=>'lazy') );
     $name = get_the_title( $team_member->ID );
     $title = get_field('job_title', $team_member->ID );
@@ -10,6 +11,10 @@
     <?php if ( $featured_image ) : ?>
         <div class="team-member__image">
             <?php echo $featured_image; ?>
+        </div>
+    <?php else: ?>
+        <div class="team-member__image">
+            <img src="<?php echo $placeholder_image ?>" alt="Placeholder team member image">
         </div>
     <?php endif; ?>
 
