@@ -1,7 +1,6 @@
 <?php
 $social_media = get_field('business_social_media', 'option');
 
-// Define the platforms you want to display
 $platforms = [
     'instagram' => 'Instagram',
     'facebook'  => 'Facebook',
@@ -23,7 +22,7 @@ $theme_uri = get_stylesheet_directory_uri() . '/assets/img/social-media/';
             aria-label="Follow us on <?php echo esc_attr($name); ?>">
                 <img
                     class="social-media__<?php echo esc_attr($key); ?>"
-                    src="<?php echo esc_url($theme_uri . $key . '.svg'); ?>"
+                    src="<?php echo esc_url($theme_uri . $key . '-' . $color . '.svg'); ?>"
                     alt="<?php echo esc_attr($name); ?> Icon">
             </a>
         <?php endif; ?>
