@@ -240,7 +240,7 @@
             "preview_size": "medium"
         },
         {
-            "key": "field_6904a8b6596a2",
+            "key": "field_6942984a2409e",
             "label": "Hero Banner Video",
             "name": "hero_banner_video",
             "aria-label": "",
@@ -267,6 +267,35 @@
             "placeholder": "",
             "prepend": "",
             "append": ""
+        },
+        {
+            "key": "field_6904a8b6596a2",
+            "label": "Enable Audio Toggle on Video",
+            "name": "enable_audio_toggle",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "All videos are mute by default. Checking this displays a button that allows users to turn the video audio on and off.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6904a91d596a3",
+                        "operator": "==",
+                        "value": "tertiary"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "message": "Enable",
+            "default_value": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
         },
         {
             "key": "field_6911a5a210723",
@@ -390,5 +419,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1763111862
+    "modified": 1765972104
 }

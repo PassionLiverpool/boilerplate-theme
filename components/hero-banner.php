@@ -85,11 +85,20 @@ if ( ! defined( 'ABSPATH' ) ) {
         <!-- Video -->
         <?php if ( $banner_video && $hero_banner_style == 'tertiary' ) : ?>
             <div class="hero-banner__video">
-                <?php 
-                    $video = $banner_video; ?>
+                <?php
+                    $video = $banner_video;
+                    $enable_audio_toggle = get_field('enable_audio_toggle');
+                ?>
+
+                <?php if($enable_audio_toggle == true): ?>
+                    <button class="audio-toggle is-muted" aria-pressed="false">
+                        <span class="screen-reader-text">Toggle audio</span>
+                    </button>
+                <?php endif; ?>
+
                 <video autoplay muted loop playsinline poster="<?php echo esc_url( $banner_poster_image['url'] ); ?>">
                     <source src="<?php echo $video ?>" type="video/mp4">
-                </video>
+                </video>    
             </div>
         <?php endif; ?>
     </header>
