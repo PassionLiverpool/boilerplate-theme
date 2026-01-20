@@ -37,36 +37,6 @@
                     "selected": 0
                 },
                 {
-                    "key": "field_6936a6df39acb",
-                    "label": "Text Alignment",
-                    "name": "text_alignment",
-                    "aria-label": "",
-                    "type": "select",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "100",
-                        "class": "",
-                        "id": ""
-                    },
-                    "choices": {
-                        "left": "Left",
-                        "center": "Center",
-                        "right": "Right"
-                    },
-                    "default_value": "left",
-                    "return_format": "value",
-                    "multiple": 0,
-                    "allow_null": 0,
-                    "allow_in_bindings": 0,
-                    "ui": 0,
-                    "ajax": 0,
-                    "placeholder": "",
-                    "create_options": 0,
-                    "save_options": 0
-                },
-                {
                     "key": "field_69035d826cbb6",
                     "label": "Header",
                     "name": "header",
@@ -726,5 +696,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1765189384
+    "modified": 1768493755
 }

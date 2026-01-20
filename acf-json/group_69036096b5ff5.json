@@ -2333,7 +2333,7 @@
             },
             "min": "",
             "max": "",
-            "button_label": "Add Row"
+            "button_label": "Add Section"
         }
     ],
     "location": [
@@ -2355,5 +2355,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1765189553
+    "modified": 1768466815
 }
