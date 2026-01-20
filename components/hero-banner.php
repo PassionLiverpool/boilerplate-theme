@@ -50,7 +50,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                     <!-- Header -->
                     <?php if ( $header ) : ?>
                         <<?php echo esc_attr( $header_style ); ?> class="hero-banner__header">
-                            <?php echo esc_html( $header ); ?>
+                            <?php echo wp_kses_post( $header ); ?>
                         </<?php echo esc_attr( $header_style ); ?>>
                     <?php endif; ?>
 

@@ -55,7 +55,7 @@
                 bottom: 1.5rem;
                 right: 1.5rem;
                 background-color: transparent;
-                background-image: url('../img/graphics/sound-on.svg');
+                background-image: url('../img/icons/sound-on.svg');
                 border: none;
                 opacity: 0.5;
                 width: 3rem;
@@ -63,7 +63,7 @@
                 z-index: 2;
 
                 &.is-muted {
-                    background-image: url('../img/graphics/sound-off.svg');
+                    background-image: url('../img/icons/sound-off.svg');
                 }
 
                 @include responsive('md') {
