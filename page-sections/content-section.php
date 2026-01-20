@@ -68,7 +68,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         </div>
         
         <!-- Media -->
-        <?php if($image || $content_video): ?>
+        <?php if(($image || $content_video) && $content_section_style != 'text-only'): ?>
             <div class="content-section__media">
                 <!-- Image -->
                 <?php if($media_type == "image"): ?>
