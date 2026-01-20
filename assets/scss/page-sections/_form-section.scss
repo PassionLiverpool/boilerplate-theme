@@ -13,11 +13,15 @@
 
     &__text {
         padding: 1rem;
-        flex-basis: 50%;
+        flex-basis: 100%;
         display: flex;
         flex-direction: column;
         align-items: stretch;
         height: 100%;
+
+        @include responsive('md') {
+            flex-basis: 50%;
+        }
     }
 
     &__buttons {
@@ -44,44 +48,20 @@
     .style{
         &--form-bottom {
             flex-direction: column;
-            .form-section__text {
-                text-align: center;
-            }
         }
 
         &--form-top {
             flex-direction: column-reverse;
-            .form-section__text {
-                text-align: center;
-            }
         }
         
         &--form-right {
             flex-direction: row;
             align-items: flex-start;
-            .form-section__text {
-                text-align: center;
-            }
-
-            @include responsive('md'){
-                .form-section__text {
-                    text-align: left;
-                }
-            }
         }
 
         &--form-left {
             flex-direction: row-reverse;
             align-items: flex-start;
-            .form-section__text {
-                text-align: center;
-            }
-            
-            @include responsive('md'){
-                .form-section__text {
-                    text-align: left;
-                }
-            }
         }
     }
 }
