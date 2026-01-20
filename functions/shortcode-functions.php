@@ -17,10 +17,14 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Description: Displays the social media links from components/social-media.php
  */
 function mytheme_social_media_shortcode( $atts ) {
-    $atts = shortcode_atts( [
-        'color' => 'black', // Set default here
-    ], $atts, 'social_media' );
-
+    $atts = shortcode_atts(
+        [
+            'color' => 'black',
+        ],
+        $atts,
+        'social_media'
+    );
+    
     // Make shortcode attributes available inside the included component
     $color = sanitize_text_field( $atts['color'] );
 
