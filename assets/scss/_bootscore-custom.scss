@@ -26,3 +26,49 @@
     clip: rect(0,0,0,0);
     border: 0;
 }
+
+/**********/
+/* FONTS */
+/********/
+
+/* Fjalla One */
+@font-face {
+  font-display: swap;
+  font-family: 'Fjalla One';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/FjallaOne-Regular.ttf') format('ttf');
+}
+
+/* Roboto */
+@font-face {
+  font-display: swap;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/Roboto-Medium.ttf') format('ttf');
+}
+
+// Header tags
+h1, h2, h3, h4, h5, h6 {
+    padding-top: 0.3rem;
+    font-family: $font-family-fjalla-one;
+    font-weight: bold;
+    line-height: normal;
+}
+
+h1 {
+  font-size: 4rem;
+}
+
+h2 {
+  font-size: 3rem;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+p, strong, span, li, div {
+    font-family: $font-family-roboto;
+}

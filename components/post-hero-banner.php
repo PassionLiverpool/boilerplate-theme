@@ -21,7 +21,8 @@ if ( ! defined( 'ABSPATH' ) ) {
             <?php bootscore_category_badge(); ?>
         </div>
     </div>
-    <?php if($banner_image_id):
+    <?php
+    if($banner_image_id):
         echo wp_get_attachment_image(
             $banner_image_id,
             'full',
@@ -31,7 +32,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                 'class'   => 'post-hero-banner__image'
             )
         );
-    else:
+    elseif ($placeholder_image):
         echo wp_get_attachment_image(
             $placeholder_image['id'],
             'full',
