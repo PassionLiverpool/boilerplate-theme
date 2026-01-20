@@ -96,6 +96,7 @@
                                 "id": ""
                             },
                             "choices": {
+                                "text-only": "Text Only",
                                 "media-bottom": "Media Bottom, Text Top",
                                 "media-top": "Media Top, Text Bottom",
                                 "media-right": "Media Right, Text Left",
@@ -623,6 +624,8 @@
                                 "field_6936a6df39acb",
                                 "field_69035d826cbb6",
                                 "field_69035d8d6cbb7",
+                                "field_696f8aefb3a0c",
+                                "field_696f8675271de",
                                 "field_69035dc62dade"
                             ],
                             "display": "seamless",
@@ -940,6 +943,8 @@
                             "clone": [
                                 "field_6936a6df39acb",
                                 "field_69035d826cbb6",
+                                "field_696f8675271de",
+                                "field_696f8aefb3a0c",
                                 "field_69035d8d6cbb7",
                                 "field_69035dc62dade"
                             ],
@@ -1102,6 +1107,8 @@
                                 "field_6936a6df39acb",
                                 "field_69035d826cbb6",
                                 "field_69035d8d6cbb7",
+                                "field_696f8aefb3a0c",
+                                "field_696f8675271de",
                                 "field_69035dc62dade"
                             ],
                             "display": "seamless",
@@ -1303,6 +1310,8 @@
                             "clone": [
                                 "field_6936a6df39acb",
                                 "field_69035d826cbb6",
+                                "field_696f8675271de",
+                                "field_696f8aefb3a0c",
                                 "field_69035d8d6cbb7",
                                 "field_69035dc62dade"
                             ],
@@ -1495,6 +1504,8 @@
                                 "field_6936a6df39acb",
                                 "field_69035d826cbb6",
                                 "field_69035d8d6cbb7",
+                                "field_696f8aefb3a0c",
+                                "field_696f8675271de",
                                 "field_69035dc62dade"
                             ],
                             "display": "seamless",
@@ -1686,6 +1697,8 @@
                                 "field_6936a6df39acb",
                                 "field_69035d826cbb6",
                                 "field_69035d8d6cbb7",
+                                "field_696f8aefb3a0c",
+                                "field_696f8675271de",
                                 "field_69035dc62dade"
                             ],
                             "display": "seamless",
@@ -1886,6 +1899,8 @@
                                 "field_6936a6df39acb",
                                 "field_69035d826cbb6",
                                 "field_69035d8d6cbb7",
+                                "field_696f8aefb3a0c",
+                                "field_696f8675271de",
                                 "field_69035dc62dade"
                             ],
                             "display": "seamless",
@@ -2187,6 +2202,8 @@
                                 "field_6936a6df39acb",
                                 "field_69035d826cbb6",
                                 "field_69035d8d6cbb7",
+                                "field_696f8aefb3a0c",
+                                "field_696f8675271de",
                                 "field_69035dc62dade"
                             ],
                             "display": "seamless",
@@ -2355,5 +2372,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1768466815
+    "modified": 1768918058
 }
