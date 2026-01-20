@@ -9,6 +9,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 
 <section class="post-hero-banner">
+
+    <!-- Blog Post Information -->
     <div class="post-hero-banner__info">
         <div class="post-hero-banner__text">
             <!-- Post Title -->
@@ -21,6 +23,8 @@ if ( ! defined( 'ABSPATH' ) ) {
             <?php bootscore_category_badge(); ?>
         </div>
     </div>
+
+    <!-- Blog Post Image -->
     <?php
     if($banner_image_id):
         echo wp_get_attachment_image(
@@ -47,6 +51,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     endif; ?>
 </section>
 
+<!-- Blog Post Meta Information -->
 <section class="post-hero-banner__meta">
     <div class="container">
         <span>Published <?php echo get_the_date('j M Y'); ?></span>
