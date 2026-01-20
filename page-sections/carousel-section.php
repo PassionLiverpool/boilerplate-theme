@@ -40,7 +40,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <section class="carousel-section background--<?php echo esc_attr($background_colour); ?>"
          <?php if($html_id): ?>id="<?php echo esc_attr($html_id); ?>"<?php endif; ?>
-         style="<?php if($background_image):?>background-image: url('<?php echo esc_url($background_image['url']); ?>'); <?endif;?>padding-top: <?php echo esc_attr($padding_top); ?>rem; padding-bottom: <?php echo esc_attr($padding_bottom); ?>rem"
+         style="<?php if($background_image):?>background-image: url('<?php echo esc_url($background_image['url']); ?>'); <?endif;?>
+         padding-top: <?php echo $padding_top ?>rem;
+         padding-bottom: <?php echo $padding_bottom ?>rem;
+         margin-top: <?php echo $margin_top ?>rem;
+         margin-bottom: <?php echo $margin_bottom ?>rem"
 >
     <div class="container">
         <div class="carousel-section__content style--<?php echo $carousel_section_style; ?>">

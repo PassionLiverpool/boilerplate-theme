@@ -19,7 +19,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <section class="icon-list-section background--<?php echo $background_colour ?>"
          <?php if($html_id): ?>id="<?php echo $html_id; ?>"<?php endif; ?>
-         style="<?php if($background_image):?>background-image: url('<?php echo $background_image['url'] ?>'); <?endif;?>padding-top: <?php echo $padding_top ?>rem; padding-bottom: <?php echo $padding_bottom ?>rem"
+         style="<?php if($background_image):?>background-image: url('<?php echo $background_image['url'] ?>'); <?endif;?>
+         padding-top: <?php echo $padding_top ?>rem;
+         padding-bottom: <?php echo $padding_bottom ?>rem;
+         margin-top: <?php echo $margin_top ?>rem;
+         margin-bottom: <?php echo $margin_bottom ?>rem"
 >
     <div class="container">
         <div class="icon-list-section__content">
