@@ -4,8 +4,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
     // Appearance
     $banner_image_id = get_post_thumbnail_id(get_the_ID());
-    $placeholder_image = get_field('placeholder_blog_post_image', 'option');
-
+    $placeholder_blog_post_image = get_field('placeholder_blog_post_image', 'option');
+    $placeholder_generic_image = get_stylesheet_directory_uri() . '/assets/img/placeholder-images/placeholder-image.jpg';
 ?>
 
 <section class="post-hero-banner">
@@ -32,9 +32,9 @@ if ( ! defined( 'ABSPATH' ) ) {
                 'class'   => 'post-hero-banner__image'
             )
         );
-    elseif ($placeholder_image):
+    elseif ($placeholder_blog_post_image):
         echo wp_get_attachment_image(
-            $placeholder_image['id'],
+            $placeholder_blog_post_image['id'],
             'full',
             false,
             array(
@@ -42,6 +42,8 @@ if ( ! defined( 'ABSPATH' ) ) {
                 'class'   => 'post-hero-banner__image'
             )
         );
+    else:
+        echo "<img class='post-hero-banner__image'' src='".$placeholder_generic_image."' alt='Placeholder image'>";
     endif; ?>
 </section>
 
