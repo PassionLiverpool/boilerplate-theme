@@ -31,7 +31,7 @@ function bootscore_child_enqueue_styles() {
   // BasicLightbox
   wp_enqueue_script(
     'basiclightbox',
-    get_stylesheet_directory_uri() . '/node_modules/basiclightbox/dist/basicLightbox.min.js',
+    get_stylesheet_directory_uri() . '/assets/vendor/basiclightbox/basicLightbox.min.js',
     array(),
     '5.0.4',
     true // load in footer
@@ -39,7 +39,7 @@ function bootscore_child_enqueue_styles() {
 
   wp_enqueue_style(
     'basiclightbox',
-    get_stylesheet_directory_uri() . '/node_modules/basiclightbox/dist/basicLightbox.min.css',
+    get_stylesheet_directory_uri() . '/assets/vendor/basiclightbox/basicLightbox.min.css',
     array(),
     '5.0.4'
   );
