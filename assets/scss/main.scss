@@ -57,29 +57,31 @@
 @import "bootscore-woocommerce"; // Comment or delete this line if WooCommerce styles are not needed
 @import "bootscore-custom";
 
-@import "templates/blog-archive";
-@import "templates/post";
-
 @import "components/buttons";
-@import "components/video";
-@import "components/hero-banners";
-@import "components/social-media";
-@import "components/pagination";
 @import "components/categories-list";
+@import "components/footer";
+@import "components/hero-banners";
+@import "components/navigation";
+@import "components/pagination";
+@import "components/social-media";
+@import "components/video";
 
-@import "page-sections/content-section";
-@import "page-sections/callout-section";
+@import "page-sections/accordion-section";
 @import "page-sections/blog-posts-section";
-@import "page-sections/team-members-section";
+@import "page-sections/callout-section";
+@import "page-sections/carousel-section";
+@import "page-sections/content-section";
+@import "page-sections/form-section";
+@import "page-sections/icon-list-section";
 @import "page-sections/image-gallery-section";
+@import "page-sections/logo-parade-section";
+@import "page-sections/team-members-section";
 @import "page-sections/testimonials-section";
 @import "page-sections/video-gallery-section";
-@import "page-sections/accordion-section";
-@import "page-sections/icon-list-section";
-@import "page-sections/form-section";
-@import "page-sections/logo-parade-section";
-@import "page-sections/carousel-section";
 
 @import "styles/background-colours";
-@import "styles/text-alignment";
 @import "styles/font-colours";
+@import "styles/text-alignment";
+
+@import "templates/blog-archive";
+@import "templates/post";
