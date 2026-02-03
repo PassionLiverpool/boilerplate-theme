@@ -36,36 +36,38 @@ if ( ! defined( 'ABSPATH' ) ) {
     <div class="container style--<?php echo $content_section_style; ?>">
 
         <!-- Text content -->
-        <div class="content-section__text">
-            <!-- Header -->
-            <?php if ( $header ) {
-                include get_stylesheet_directory() . '/components/section-header.php';
-            } ?>
+        <?php if(!empty($header) || !empty($wysiwyg_text) || !empty($primary_button['url']) || !empty($secondary_button['url'])): ?>
+            <div class="content-section__text">
+                <!-- Header -->
+                <?php if ( $header ) {
+                    include get_stylesheet_directory() . '/components/section-header.php';
+                } ?>
 
-            <!-- WYSIWYG -->
-            <?php if ( $wysiwyg_text ) {
-                include get_stylesheet_directory() . '/components/section-wysiwyg.php';
-            } ?>
+                <!-- WYSIWYG -->
+                <?php if ( $wysiwyg_text ) {
+                    include get_stylesheet_directory() . '/components/section-wysiwyg.php';
+                } ?>
 
-            <!-- Buttons -->
-            <?php if($primary_button || $secondary_button): ?>
-                <div class="content-section__buttons">
-                    <?php if($primary_button): ?>
-                        <?php
-                            $button = $primary_button;
-                            include get_stylesheet_directory() . '/components/button.php';
-                        ?>
-                    <?php endif; ?>
-                    <?php if($secondary_button): ?>
-                        <?php
-                            $button = $secondary_button;
-                            include get_stylesheet_directory() . '/components/button.php';
-                        ?>
-                    <?php endif; ?>
-                </div>
-            <?php endif; ?>
+                <!-- Buttons -->
+                <?php if($primary_button || $secondary_button): ?>
+                    <div class="content-section__buttons">
+                        <?php if($primary_button): ?>
+                            <?php
+                                $button = $primary_button;
+                                include get_stylesheet_directory() . '/components/button.php';
+                            ?>
+                        <?php endif; ?>
+                        <?php if($secondary_button): ?>
+                            <?php
+                                $button = $secondary_button;
+                                include get_stylesheet_directory() . '/components/button.php';
+                            ?>
+                        <?php endif; ?>
+                    </div>
+                <?php endif; ?>
 
-        </div>
+            </div>
+        <?php endif; ?>
         
         <!-- Media -->
         <?php if(($image || $content_video) && $content_section_style != 'text-only'): ?>

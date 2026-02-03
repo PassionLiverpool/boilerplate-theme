@@ -40,9 +40,11 @@ if ( ! defined( 'ABSPATH' ) ) {
         </div>
 
         <!-- Form -->
+        <?php if($form_shortcode): ?>
         <div class="form-section__form">
             <?php echo do_shortcode( $form_shortcode ); ?>
         </div>
+        <?php endif; ?>
 
     </div>
 </section>
