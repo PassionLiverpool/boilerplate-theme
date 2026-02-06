@@ -14,5 +14,11 @@ $breakpoints: (
   ),
   "xl": (
     min-width: $desktop-wide,
+  ),
+  "tv-small": (
+    min-width: $tv-small,
+  ),
+  "tv-4k-ultra": (
+    min-width: $tv-4k-ultra,
   )
 ); 
