@@ -87,16 +87,25 @@ if ( ! defined( 'ABSPATH' ) ) {
             <div class="hero-banner__video">
                 <?php
                     $video = $banner_video;
-                    $enable_audio_toggle = get_field('enable_audio_toggle');
+                    $video_controls = get_field('video_controls');
+
+                    $video_controls_attr = ($video_controls === 'full-controls') ? 'controls' : '';
                 ?>
 
-                <?php if($enable_audio_toggle == true): ?>
+                <?php if($video_controls == 'audio-toggle-only'): ?>
                     <button class="audio-toggle is-muted" aria-pressed="false">
                         <span class="screen-reader-text">Toggle audio</span>
                     </button>
                 <?php endif; ?>
 
-                <video autoplay muted loop playsinline poster="<?php echo esc_url( $banner_poster_image['url'] ); ?>">
+                    <video
+                        autoplay
+                        muted
+                        loop
+                        playsinline
+                        <?php echo $video_controls_attr; ?>
+                        poster="<?php echo esc_url($banner_poster_image['url']); ?>"
+                    >
                     <source src="<?php echo $video ?>" type="video/mp4">
                 </video>    
             </div>
