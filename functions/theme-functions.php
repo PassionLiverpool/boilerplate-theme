@@ -23,42 +23,6 @@ function disable_sidebar_widgets( $sidebars_widgets )
 }
 add_filter( 'sidebars_widgets', 'disable_sidebar_widgets' );
 
-/*
- * Page section templates
- */
-// Helper: return sections HTML for a given post ID (safe, does not alter main loop)
-function get_theme_page_sections_html( $post_id = null ) {
-    if ( ! function_exists( 'have_rows' ) ) {
-        return ''; // ACF not active
-    }
-    $post_id = $post_id ? $post_id : get_the_ID();
-    if ( ! $post_id ) {
-        return '';
-    }
-
-    $html = '';
-
-    // Use have_rows with $post_id so we don't touch the global loop
-    if ( have_rows( 'flexible_page_sections', $post_id ) ) {
-        while ( have_rows( 'flexible_page_sections', $post_id ) ) {
-            the_row();
-            $layout = str_replace( '_', '-', get_row_layout() );
-            $template_path = locate_template( "page-sections/{$layout}.php" );
-            if ( $template_path ) {
-                ob_start();
-                include $template_path;
-                $html .= ob_get_clean();
-            }
-        }
-    }
-
-    return $html;
-}
-
-// Renderer: echo sections (call from templates)
-function render_theme_page_sections( $post_id = null ) {
-    echo get_theme_page_sections_html( $post_id );
-}
 
 // Register custom image sizes
 function custom_image_sizes() {
@@ -79,20 +43,3 @@ function mytheme_custom_sizes_dropdown( $sizes ) {
     ) );
 }
 add_filter( 'image_size_names_choose', 'mytheme_custom_sizes_dropdown' );
-
-// Show dashicons to non-logged-in users
-function load_dashicons_front_end() {
-    wp_enqueue_style( 'dashicons' );
-}
-add_action( 'wp_enqueue_scripts', 'load_dashicons_front_end' );
-
-add_action('init', function () {
-    // Removes Featured Image after hero
-    remove_action('bootscore_after_featured_image', 'bootscore_post_thumbnail');
-
-    // Removes Featured Image before content
-    remove_action('bootscore_before_content', 'bootscore_post_thumbnail');
-
-    // Some Bootscore versions also attach it here:
-    remove_action('bootscore_before_main', 'bootscore_post_thumbnail');
-});

@@ -64,6 +64,28 @@ function bootscore_child_enqueue_styles() {
     '5.0.4'
   );
 
+  // AOS
+  wp_enqueue_style(
+    'aos-css',
+    get_stylesheet_directory_uri() . '/assets/vendor/aos/aos.css',
+    array(),
+    '2.3.4'
+  );
+
+  wp_enqueue_script(
+    'aos-js',
+    get_stylesheet_directory_uri() . '/assets/vendor/aos/aos.js',
+    array(),
+    '2.3.4',
+    true // load in footer
+  );
+
+  // Init AOS
+  wp_add_inline_script(
+    'aos-js',
+    'document.addEventListener("DOMContentLoaded", function() { AOS.init(); });'
+  );
+
   // custom.js
   // Get modification time. Enqueue file with modification date to prevent browser from loading cached scripts when file content changes. 
   $modificated_CustomJS = date('YmdHi', filemtime(get_stylesheet_directory() . '/assets/js/custom.min.js'));
@@ -76,7 +98,5 @@ add_action( 'init', function() {
 
 require_once get_stylesheet_directory() . '/functions/acf-functions.php';
 require_once get_stylesheet_directory() . '/functions/post-functions.php';
-require_once get_stylesheet_directory() . '/functions/style-functions.php';
-require_once get_stylesheet_directory() . '/functions/script-functions.php';
 require_once get_stylesheet_directory() . '/functions/shortcode-functions.php';
 require_once get_stylesheet_directory() . '/functions/theme-functions.php';

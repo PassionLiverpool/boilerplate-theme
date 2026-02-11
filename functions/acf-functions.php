@@ -67,3 +67,60 @@ function exclude_cpt_from_link_modal( $query ) {
     return $query;
 }
 add_filter( 'wp_link_query_args', 'exclude_cpt_from_link_modal' );
+
+/*
+ * Page section templates
+ */
+// Helper: return sections HTML for a given post ID (safe, does not alter main loop)
+function get_theme_page_sections_html( $post_id = null ) {
+    if ( ! function_exists( 'have_rows' ) ) {
+        return ''; // ACF not active
+    }
+    $post_id = $post_id ? $post_id : get_the_ID();
+    if ( ! $post_id ) {
+        return '';
+    }
+
+    $html = '';
+
+    // Use have_rows with $post_id so we don't touch the global loop
+    if ( have_rows( 'flexible_page_sections', $post_id ) ) {
+        while ( have_rows( 'flexible_page_sections', $post_id ) ) {
+            the_row();
+            $layout = str_replace( '_', '-', get_row_layout() );
+            $template_path = locate_template( "page-sections/{$layout}.php" );
+            if ( $template_path ) {
+                ob_start();
+                include $template_path;
+                $html .= ob_get_clean();
+            }
+        }
+    }
+
+    return $html;
+}
+
+// Renderer: echo sections (call from templates)
+function render_theme_page_sections( $post_id = null ) {
+    echo get_theme_page_sections_html( $post_id );
+}
+
+/**
+ * Output ACF site options scripts in the header
+ */
+add_action('wp_head', function() {
+    $header_scripts = get_field('header_scripts', 'option');
+    if ( $header_scripts ) {
+        echo $header_scripts; // allows safe HTML/JS output
+    }
+});
+
+/**
+ * Output ACF site options scripts in the footer
+ */
+add_action('wp_footer', function() {
+    $footer_scripts = get_field('footer_scripts', 'option');
+    if ( $footer_scripts ) {
+        echo $footer_scripts;
+    }
+});
