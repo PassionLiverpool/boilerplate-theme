@@ -48,27 +48,21 @@ function bootscore_child_enqueue_styles() {
   );
 	wp_enqueue_style('modal-video', get_stylesheet_directory_uri() . '/assets/js/modal-video/modal-video.min.css', array(), '2.4.8', $media = 'all');
   
-  // BasicLightbox - Only load if page contains gallery images
-  global $post;
-  if ( is_object( $post ) && has_blocks( $post->ID ) ) {
-    // Check if page content has gallery images (lightbox trigger elements)
-    if ( strpos( $post->post_content, 'gallery-image' ) !== false ) {
-      wp_enqueue_script(
-        'basiclightbox',
-        get_stylesheet_directory_uri() . '/assets/vendor/basiclightbox/basicLightbox.min.js',
-        array(),
-        '5.0.4',
-        true // load in footer
-      );
+  // BasicLightbox
+  wp_enqueue_script(
+    'basiclightbox',
+    get_stylesheet_directory_uri() . '/assets/vendor/basiclightbox/basicLightbox.min.js',
+    array(),
+    '5.0.4',
+    true // load in footer
+  );
 
-      wp_enqueue_style(
-        'basiclightbox',
-        get_stylesheet_directory_uri() . '/assets/vendor/basiclightbox/basicLightbox.min.css',
-        array(),
-        '5.0.4'
-      );
-    }
-  }
+  wp_enqueue_style(
+    'basiclightbox',
+    get_stylesheet_directory_uri() . '/assets/vendor/basiclightbox/basicLightbox.min.css',
+    array(),
+    '5.0.4'
+  );
 
   // custom.js
   // Get modification time. Enqueue file with modification date to prevent browser from loading cached scripts when file content changes. 
