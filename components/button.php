@@ -16,10 +16,7 @@ if ($button_link) :
         <?php
         // --- ICON ---
         if ( $show_icon == true && $button_icon ) {
-            if ( str_starts_with( $button_icon, 'dashicons-' ) ) {
-                echo '<span class="btn__icon dashicons ' . esc_attr( $button_icon ) . '"></span>';
-            }
-            elseif ( filter_var( $button_icon, FILTER_VALIDATE_URL ) ) {
+            if ( filter_var( $button_icon, FILTER_VALIDATE_URL ) ) {
                 echo '<img class="btn__icon" src="' . esc_url( $button_icon ) . '" alt="">';
             }
             else {
