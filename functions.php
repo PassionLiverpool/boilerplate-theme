@@ -86,6 +86,30 @@ function bootscore_child_enqueue_styles() {
     'document.addEventListener("DOMContentLoaded", function() { AOS.init(); });'
   );
 
+  // Swiper.js
+  wp_register_style(
+    'swiper',
+    get_stylesheet_directory_uri() . '/assets/vendor/swiper/swiper-bundle.min.css',
+    [],
+    '11.0.5'
+  );
+
+  wp_register_script(
+    'swiper',
+    get_stylesheet_directory_uri() . '/assets/vendor/swiper/swiper-bundle.min.js',
+    [],
+    '11.0.5',
+    true
+  );
+
+  wp_register_script(
+    'swiper-init',
+    get_stylesheet_directory_uri() . '/assets/js/swiper-init.js',
+    ['swiper'],
+    filemtime(get_stylesheet_directory() . '/assets/js/swiper-init.js'),
+    true
+  );
+
   // custom.js
   // Get modification time. Enqueue file with modification date to prevent browser from loading cached scripts when file content changes. 
   $modificated_CustomJS = date('YmdHi', filemtime(get_stylesheet_directory() . '/assets/js/custom.min.js'));

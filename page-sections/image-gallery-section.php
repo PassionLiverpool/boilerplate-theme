@@ -15,6 +15,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 
     // Settings
     include get_stylesheet_directory() . '/page-sections/section-fields/section-settings.php';
+
+    // Enqueue Swiper assets if gallery is not empty
+    if (!empty($image_gallery)) {
+        wp_enqueue_style('swiper');
+        wp_enqueue_script('swiper');
+        wp_enqueue_script('swiper-init');
+    }
 ?>
 
 <section class="image-gallery-section background--<?php echo $background_colour ?>"
@@ -54,5 +61,30 @@ if ( ! defined( 'ABSPATH' ) ) {
                     </li>
                 <?php endforeach; ?>
             </ul>
+
+            <!-- Swiper on mobile -->
+            <div class="swiper image-gallery-swiper image-gallery">
+                <div class="swiper-wrapper">
+
+                    <?php foreach ($image_gallery as $image) :
+                    $full = wp_get_attachment_image_src($image['id'], 'full')[0];
+                    ?>
+                    <div class="swiper-slide image-gallery__item">
+                        <img
+                        src="<?php echo esc_url($image['sizes']['medium']); ?>"
+                        alt="<?php echo esc_attr($image['alt']); ?>"
+                        data-full="<?php echo esc_url($full); ?>"
+                        loading="lazy"
+                        decoding="async"
+                        >
+                    </div>
+                    <?php endforeach; ?>
+
+                </div>
+
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
     </div>
 </section>

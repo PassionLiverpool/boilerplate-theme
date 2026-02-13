@@ -89,36 +89,6 @@
                     "save_options": 0
                 },
                 {
-                    "key": "field_696f8aefb3a0c",
-                    "label": "Header Alignment",
-                    "name": "header_alignment",
-                    "aria-label": "",
-                    "type": "select",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "33",
-                        "class": "",
-                        "id": ""
-                    },
-                    "choices": {
-                        "left": "left",
-                        "right": "right",
-                        "center": "center"
-                    },
-                    "default_value": "left",
-                    "return_format": "value",
-                    "multiple": 0,
-                    "allow_null": 0,
-                    "allow_in_bindings": 0,
-                    "ui": 0,
-                    "ajax": 0,
-                    "placeholder": "",
-                    "create_options": 0,
-                    "save_options": 0
-                },
-                {
                     "key": "field_696f8675271de",
                     "label": "Header Colour",
                     "name": "header_colour",
@@ -164,8 +134,8 @@
                     "default_value": "",
                     "allow_in_bindings": 0,
                     "tabs": "all",
-                    "toolbar": "full",
-                    "media_upload": 1,
+                    "toolbar": "basic",
+                    "media_upload": 0,
                     "delay": 0
                 },
                 {
@@ -800,5 +770,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1770812246
+    "modified": 1770973844
 }
