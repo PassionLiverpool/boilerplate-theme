@@ -6,9 +6,9 @@
     include ('featured-image.php');
 ?>
 
-<li class="page-link page-link--small">
+<li class="page-link-card page-link-card--small">
     <!-- Featured image -->
-    <a href="<?php echo esc_url( $permalink ); ?>" class="page-link__image">
+    <a href="<?php echo esc_url( $permalink ); ?>" class="page-link-card__image">
         <span class="screen-reader-text"> Read more about <?php echo esc_html( $title ); ?></span>
         <?php
         if ( $featured_image ) {
@@ -19,9 +19,9 @@
         ?>
     </a>
 
-    <div class="page-link__content">
+    <div class="page-link-card__content">
         <!-- Blog post title -->
-        <h3 class="page-link__title"><?php echo esc_html( $truncated_title ); ?></h3>
+        <h3 class="page-link-card__title"><?php echo esc_html( $truncated_title ); ?></h3>
 
         <!-- Read more button -->
         <a href="<?php echo esc_url( $permalink ); ?>" class="btn btn--primary">
