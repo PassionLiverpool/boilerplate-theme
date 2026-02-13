@@ -21,21 +21,6 @@
 
     <div class="page-link__content">
 
-        <!-- Category -->
-        <div class="page-link__categories">
-            <?php
-            $categories = get_the_category( $blog_post->ID );
-            if ( ! empty( $categories ) ) {
-                foreach ( $categories as $category ) {
-                    $category_link = get_category_link( $category->term_id );
-                    echo '<a href="' . esc_url( $category_link ) . '" class="page-link__category">'
-                        . esc_html( $category->name ) .
-                        '</a> ';
-                }
-            }
-            ?>
-        </div>
-
         <!-- Title -->
         <h3 class="page-link__title">
             <?php echo esc_html( $truncated_title ); ?>
