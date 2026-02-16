@@ -15,6 +15,9 @@ $breakpoints: (
   "xl": (
     min-width: $desktop-wide,
   ),
+  "xxl": (
+    min-width: $desktop-ultrawide,
+  ),
   "tv-small": (
     min-width: $tv-small,
   ),
