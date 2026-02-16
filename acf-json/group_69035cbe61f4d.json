@@ -529,27 +529,6 @@
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_690373117f720",
-                    "label": "Section Label",
-                    "name": "section_label",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "Only used for labelling ACF sections in the backend. Overrides header.",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "50",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "allow_in_bindings": 0,
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": ""
-                },
-                {
                     "key": "field_690373207f721",
                     "label": "HTML ID",
                     "name": "html_id",
@@ -741,5 +720,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1770988949
+    "modified": 1771250421
 }
