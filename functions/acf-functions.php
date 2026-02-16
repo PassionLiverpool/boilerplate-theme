@@ -95,6 +95,12 @@ function get_theme_page_sections_html( $post_id = null ) {
                 $html .= ob_get_clean();
             }
         }
+    } else {
+        ob_start();
+        the_content();
+        $content = ob_get_clean();
+
+        echo '<div class="container">' . $content . '</div>';
     }
 
     return $html;
