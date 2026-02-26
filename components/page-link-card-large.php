@@ -1,7 +1,7 @@
 <?php
-    $permalink = get_permalink( $blog_post->ID );
-    $title = get_the_title( $blog_post->ID );
-    $excerpt = get_the_excerpt( $blog_post->ID );
+    $permalink = get_permalink( $page_link->ID );
+    $title = get_the_title( $page_link->ID );
+    $excerpt = get_the_excerpt( $page_link->ID );
     $truncated_title = wp_trim_words( $title, 15 );
     include ('featured-image.php');
 ?>

@@ -62,7 +62,7 @@ if ( ! defined( 'ABSPATH' ) ) {
             <!--  Page Links -->
             <?php if( $page_links ): ?>
                 <ul class="page-links page-links--<?php echo $page_links_style; ?>">
-                <?php foreach( $page_links as $blog_post ): ?>
+                <?php foreach( $page_links as $page_link ): ?>
                     <?php include get_stylesheet_directory() . '/components/page-link-card-'.$page_links_style.'.php'; ?>
                 <?php endforeach; ?>
                 </ul>
