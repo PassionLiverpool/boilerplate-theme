@@ -2,7 +2,7 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
-    $section_class="form-section";
+    $section_class="shortcode-section";
 
     // Header & Body Text
     include get_stylesheet_directory() . '/page-sections/section-fields/section-text.php';
@@ -10,9 +10,9 @@ if ( ! defined( 'ABSPATH' ) ) {
     // Appearance
     include get_stylesheet_directory() . '/page-sections/section-fields/section-appearance.php';
 
-    // Form Shortcode
-    $form_section_style = get_sub_field('form_section_style') ?? 'form-right';
-    $form_shortcode = get_sub_field('form_shortcode') ?? [];
+    // shortcode Shortcode
+    $shortcode_section_style = get_sub_field('shortcode_section_style') ?? 'shortcode-right';
+    $shortcode = get_sub_field('shortcode') ?? [];
 
     // Settings
     include get_stylesheet_directory() . '/page-sections/section-fields/section-settings.php';
@@ -26,15 +26,15 @@ if ( ! defined( 'ABSPATH' ) ) {
          margin-top: <?php echo $margin_top ?>rem;
          margin-bottom: <?php echo $margin_bottom ?>rem"
 >
-    <div class="container style--<?php echo $form_section_style; ?>">
+    <div class="container style--<?php echo $shortcode_section_style; ?>">
 
         <!-- WYSIWYG and Buttons Introduction -->
         <?php include get_stylesheet_directory() . '/page-sections/section-fields/section-introduction.php'; ?>
 
-        <!-- Form -->
-        <?php if($form_shortcode): ?>
-        <div class="<?php echo $section_class ?>__form">
-            <?php echo do_shortcode( $form_shortcode ); ?>
+        <!-- shortcode -->
+        <?php if($shortcode): ?>
+        <div class="<?php echo $section_class ?>__shortcode">
+            <?php echo do_shortcode( $shortcode ); ?>
         </div>
         <?php endif; ?>
 

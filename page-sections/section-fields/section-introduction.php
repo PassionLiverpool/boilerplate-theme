@@ -1,6 +1,6 @@
 <?php
-$primary_button = $content['primary_button_button'];
-$secondary_button = $content['secondary_button_button'];
+$primary_button = $content['primary_button_button'] ?? get_sub_field('primary_button_button');
+$secondary_button = $content['secondary_button_button'] ?? get_sub_field('secondary_button_button');
 
 $has_wysiwyg = !empty(trim(wp_strip_all_tags($wysiwyg_text ?? '')));
 $has_primary_button = !empty($primary_button['url']);
@@ -15,7 +15,7 @@ if ($has_wysiwyg || $has_primary_button || $has_secondary_button): ?>
 
         <!-- Buttons -->
         <?php if($primary_button || $secondary_button): ?>
-            <div class="<?php echo $section_class ?>__buttons">
+            <div class="<?php echo $section_class ?>__buttons buttons">
                 <?php if($primary_button): ?>
                     <?php
                         $button = $primary_button;

@@ -1,4 +1,4 @@
-.form-section {
+.shortcode-section {
     height: 100%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -37,7 +37,7 @@
         }
     }
 
-    &__form {
+    &__shortcode {
         flex-basis: 50%;
         width: 100%;
     }
@@ -47,21 +47,21 @@
     }
 
     .style{
-        &--form-bottom {
+        &--shortcode-bottom {
             flex-direction: column;
         }
 
-        &--form-top {
+        &--shortcode-top {
             flex-direction: column-reverse;
         }
         
-        &--form-right {
+        &--shortcode-right {
             flex-direction: row;
             align-items: flex-start;
             justify-content: space-between;
         }
 
-        &--form-left {
+        &--shortcode-left {
             flex-direction: row-reverse;
             align-items: flex-start;
             justify-content: space-between;
