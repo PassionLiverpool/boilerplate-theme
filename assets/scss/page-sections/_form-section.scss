@@ -58,11 +58,13 @@
         &--form-right {
             flex-direction: row;
             align-items: flex-start;
+            justify-content: space-between;
         }
 
         &--form-left {
             flex-direction: row-reverse;
             align-items: flex-start;
+            justify-content: space-between;
         }
     }
 }
