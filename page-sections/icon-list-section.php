@@ -33,7 +33,11 @@ if ( ! defined( 'ABSPATH' ) ) {
             <!-- icon-list -->
             <?php
                 if( have_rows('icon_list') ):
-                    echo "<ul class='icon-list'>";
+                    $count = count($icon_list);
+                    // Cap at 4
+                    $grid_columns = min($count, 4);
+
+                    echo "<ul class='icon-list grid grid--{$grid_columns}'>";
                     while( have_rows('icon_list') ) : the_row();
                         $icon_text = get_sub_field('icon_text');
             ?>
