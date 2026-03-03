@@ -27,16 +27,9 @@ if ( ! defined( 'ABSPATH' ) ) {
          margin-bottom: <?php echo $margin_bottom ?>rem"
 >
     <div class="container style--<?php echo $content_section_style; ?>">
-        <div class="page-links-section__content">
-            <!-- Header -->
-            <?php if ( $header ) {
-                include get_stylesheet_directory() . '/components/section-header.php';
-            } ?>
-
-            <!-- WYSIWYG -->
-            <?php if ( $wysiwyg_text ) {
-                include get_stylesheet_directory() . '/components/section-wysiwyg.php';
-            } ?>
+        <div class="<?php echo $section_class ?>__content">
+            <!-- WYSIWYG and Buttons Introduction -->
+            <?php include get_stylesheet_directory() . '/page-sections/section-fields/section-introduction.php'; ?>
 
             <!-- Query -->
              <?php

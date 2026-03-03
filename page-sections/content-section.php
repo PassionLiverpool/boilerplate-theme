@@ -13,10 +13,6 @@ if ( ! defined( 'ABSPATH' ) ) {
     $content_video = $content['video'] ?? '';
     $content_video_thumbnail = $content['video_thumbnail'] ?? '';
 
-    // Buttons
-    $primary_button = $content['content_section_primary_button_button'];
-    $secondary_button = $content['content_section_secondary_button_button'];
-
     // Appearance
     $content_section_style = get_sub_field('content_section_style') ?? 'media-bottom';
     include get_stylesheet_directory() . '/page-sections/section-fields/section-appearance.php';
@@ -25,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     include get_stylesheet_directory() . '/page-sections/section-fields/section-settings.php';
 ?>
 
-<section class="content-section background--<?php echo $background_colour ?>"
+<section class="<?php echo $section_class ?> background--<?php echo $background_colour ?>"
          <?php if($html_id): ?>id="<?php echo $html_id; ?>"<?php endif; ?>
          style="<?php if($background_image):?>background-image: url('<?php echo $background_image['url'] ?>'); <?endif;?>
          padding-top: <?php echo $padding_top ?>rem;
@@ -35,46 +31,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 >
     <div class="container style--<?php echo $content_section_style; ?>">
 
-        <!-- Text content -->
-        <?php if(!empty($header) || !empty($wysiwyg_text) || !empty($primary_button['url']) || !empty($secondary_button['url'])): ?>
-            <div class="content-section__text">
-                <!-- Header -->
-                <?php if ( $header ) {
-                    include get_stylesheet_directory() . '/components/section-header.php';
-                } ?>
-
-                <!-- WYSIWYG -->
-                <?php if ( $wysiwyg_text ) {
-                    include get_stylesheet_directory() . '/components/section-wysiwyg.php';
-                } ?>
-
-                <!-- Buttons -->
-                <?php if($primary_button || $secondary_button): ?>
-                    <div class="content-section__buttons">
-                        <?php if($primary_button): ?>
-                            <?php
-                                $button = $primary_button;
-                                include get_stylesheet_directory() . '/components/button.php';
-                            ?>
-                        <?php endif; ?>
-                        <?php if($secondary_button): ?>
-                            <?php
-                                $button = $secondary_button;
-                                include get_stylesheet_directory() . '/components/button.php';
-                            ?>
-                        <?php endif; ?>
-                    </div>
-                <?php endif; ?>
-
-            </div>
-        <?php endif; ?>
-        
+        <!-- WYSIWYG and Buttons Introduction -->
+        <?php include get_stylesheet_directory() . '/page-sections/section-fields/section-introduction.php'; ?>
+ 
         <!-- Media -->
         <?php if(($image || $content_video) && $content_section_style != 'text-only'): ?>
-            <div class="content-section__media">
+            <div class="<?php echo $section_class ?>__media">
                 <!-- Image -->
                 <?php if($media_type == "image"): ?>
-                    <div class="content-section__image">
+                    <div class="<?php echo $section_class ?>__image">
                         <?php echo wp_get_attachment_image($image['id'], 'medium', false, array('loading'=>'lazy')); ?>
                     </div>
                 <?php endif; ?>
@@ -83,7 +48,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                  <?php
                  if($media_type == "video"):
                 ?>
-                    <div class="content-section__video">
+                    <div class="<?php echo $section_class ?>__video">
                         <?php
                             $video = $content_video;
                             $video_thumbnail = $content_video_thumbnail;

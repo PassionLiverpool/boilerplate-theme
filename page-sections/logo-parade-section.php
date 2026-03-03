@@ -9,10 +9,10 @@ if ( ! defined( 'ABSPATH' ) ) {
     include get_stylesheet_directory() . '/page-sections/section-fields/section-settings.php';
 ?>
 
-<section class="logo-parade-section"
+<section class="<?php echo $section_class ?>"
          <?php if($html_id): ?>id="<?php echo $html_id; ?>"<?php endif; ?>
 >
-    <div class="logo-parade-section__logos">
+    <div class="<?php echo $section_class ?>__logos">
 
         <!-- Logo Parade -->
         <ul class="logo-parade">

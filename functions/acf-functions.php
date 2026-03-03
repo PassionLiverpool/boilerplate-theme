@@ -31,20 +31,34 @@ add_action( 'wp_enqueue_scripts', function() {
 // Add labels to flexible content layouts
 add_filter( 'acf/fields/flexible_content/layout_title', function( $title, $field, $layout, $i ) {
 
-    $settings = get_sub_field( 'section_settings' );
-    $section_label  = $settings['section_label'] ?? '';
-
     $content = get_sub_field( 'section_content' );
-    if ($content) {
-        $header = $content['header'] ?? '';
+    if ( $content ) {
+        $header = $content['wysiwyg_text'] ?? '';
     } else {
-        $header = get_sub_field('header');
+        $header = get_sub_field( 'wysiwyg_text' );
     }
 
-    if ( $section_label ) {
-        $title .= ' – ' . esc_html( $section_label );
-    } else if (!$section_label && $header) {
-        $title .= ' – ' . esc_html( $header );
+    // Determine source string
+    $label_source = $header;
+
+    if ( $label_source ) {
+
+        // 1. Strip tags
+        $label_source = wp_strip_all_tags( $label_source );
+
+        // 2. Decode HTML entities
+        $label_source = html_entity_decode( $label_source, ENT_QUOTES, 'UTF-8' );
+
+        // 3. Trim whitespace
+        $label_source = trim( $label_source );
+
+        // 4. Limit to 50 characters safely
+        if ( mb_strlen( $label_source ) > 75 ) {
+            $label_source = mb_substr( $label_source, 0, 75 ) . '…';
+        }
+
+        // 5. Escape for output
+        $title .= ' – ' . esc_html( $label_source );
     }
 
     return $title;

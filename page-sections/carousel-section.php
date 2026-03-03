@@ -38,7 +38,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     $data_interval_attr = $autoplay ? '' : ' data-bs-interval="false"';
 ?>
 
-<section class="carousel-section background--<?php echo esc_attr($background_colour); ?>"
+<section class="<?php echo $section_class ?> background--<?php echo esc_attr($background_colour); ?>"
          <?php if($html_id): ?>id="<?php echo esc_attr($html_id); ?>"<?php endif; ?>
          style="<?php if($background_image):?>background-image: url('<?php echo esc_url($background_image['url']); ?>'); <?endif;?>
          padding-top: <?php echo $padding_top ?>rem;
@@ -47,19 +47,10 @@ if ( ! defined( 'ABSPATH' ) ) {
          margin-bottom: <?php echo $margin_bottom ?>rem"
 >
     <div class="container">
-        <div class="carousel-section__content style--<?php echo $carousel_section_style; ?>">
+        <div class="<?php echo $section_class ?>__content style--<?php echo $carousel_section_style; ?>">
 
-            <div class="carousel-section__text">
-                <!-- Header -->
-                <?php if ( $header ) {
-                    include get_stylesheet_directory() . '/components/section-header.php';
-                } ?>
-
-                <!-- WYSIWYG -->
-                <?php if ( $wysiwyg_text ) {
-                    include get_stylesheet_directory() . '/components/section-wysiwyg.php';
-                } ?>
-            </div>
+            <!-- WYSIWYG and Buttons Introduction -->
+            <?php include get_stylesheet_directory() . '/page-sections/section-fields/section-introduction.php'; ?>
 
             <!-- Carousel -->
             <div id="carouselExampleIndicators" 

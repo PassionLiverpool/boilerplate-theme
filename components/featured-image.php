@@ -1,6 +1,7 @@
 <?php
 // Get ACF image (returns array or false)
 $placeholder_image = get_field( 'placeholder_blog_post_image', 'option' );
+$id = $blog_post->ID ?? $page_link->ID;
 
 if ( $placeholder_image && isset( $placeholder_image['id'] ) ) {
     // Use ACF image
@@ -21,7 +22,7 @@ if ( $placeholder_image && isset( $placeholder_image['id'] ) ) {
 }
 
 $featured_image = get_the_post_thumbnail(
-    $blog_post->ID,
+    $id,
     'medium',
     false,
     [ 'loading' => 'lazy' ]

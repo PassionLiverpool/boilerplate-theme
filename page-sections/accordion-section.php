@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     include get_stylesheet_directory() . '/page-sections/section-fields/section-settings.php';
 ?>
 
-<section class="accordion-section background--<?php echo $background_colour ?>"
+<section class="<?php echo $section_class ?> background--<?php echo $background_colour ?>"
          <?php if($html_id): ?>id="<?php echo $html_id; ?>"<?php endif; ?>
          style="<?php if($background_image):?>background-image: url('<?php echo $background_image['url'] ?>'); <?endif;?>
          padding-top: <?php echo $padding_top ?>rem;
@@ -26,16 +26,9 @@ if ( ! defined( 'ABSPATH' ) ) {
          margin-bottom: <?php echo $margin_bottom ?>rem"
 >
     <div class="container">
-        <div class="accordion-section__content">
-            <!-- Header -->
-            <?php if ( $header ) {
-                include get_stylesheet_directory() . '/components/section-header.php';
-            } ?>
-
-            <!-- WYSIWYG -->
-            <?php if ( $wysiwyg_text ) {
-                include get_stylesheet_directory() . '/components/section-wysiwyg.php';
-            } ?>
+        <div class="<?php echo $section_class ?>__content">
+            <!-- WYSIWYG and Buttons Introduction -->
+            <?php include get_stylesheet_directory() . '/page-sections/section-fields/section-introduction.php'; ?>
 
             <!-- Accordion -->
             <?php
