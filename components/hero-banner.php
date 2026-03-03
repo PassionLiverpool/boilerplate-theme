@@ -21,7 +21,8 @@ if ( ! defined( 'ABSPATH' ) ) {
     $hero_banner_style = get_field('hero_banner_style') ?? 'media-bottom';
     $font_colour = get_field('hero_banner_font_colour') ?? 'black';
     $background_colour = get_field('hero_banner_background_colour') ?? 'white';
-    $background_image = get_field('hero_banner_background_image');
+    $background_image_desktop = get_field('hero_banner_background_image_desktop');
+    $background_image_mobile = get_field('hero_banner_background_image_mobile');
     $banner_video = get_field('hero_banner_video');
     $banner_poster_image = get_field('hero_banner_poster_image');
 
@@ -34,14 +35,14 @@ if ( ! defined( 'ABSPATH' ) ) {
     <header class="hero-banner style--<?php echo $hero_banner_style; ?> <?php if($background_colour && $hero_banner_style=='primary'): ?>background--<?php echo $background_colour ?><?php endif; ?>"
             <?php if($html_id): ?>id="<?php echo $html_id; ?>"<?php endif; ?>
     >
-        <?php if ($background_image && $hero_banner_style === 'secondary'): ?>
+        <?php if ($background_image_desktop && $hero_banner_style === 'secondary'): ?>
             <picture class="hero-banner__bg-image">
                 <source
-                srcset="<?php echo esc_url($background_image['url']); ?>"
+                srcset="<?php echo esc_url($background_image_mobile['url']); ?>"
                 media="(max-width: 767px)"
                 >
                 <img
-                src="<?php echo esc_url($background_image['url']); ?>"
+                src="<?php echo esc_url($background_image_desktop['url']); ?>"
                 alt=""
                 fetchpriority="high"
                 decoding="async"

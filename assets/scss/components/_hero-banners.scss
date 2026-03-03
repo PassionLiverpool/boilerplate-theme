@@ -142,7 +142,7 @@
 
     @include responsive('xl') {
         flex-direction: row;
-        height: 30rem;
+        height: auto;
     }
 
     &__image {
