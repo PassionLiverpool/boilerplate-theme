@@ -25,30 +25,33 @@ if ( ! defined( 'ABSPATH' ) ) {
     </div>
 
     <!-- Blog Post Image -->
-    <?php
-    if($banner_image_id):
-        echo wp_get_attachment_image(
-            $banner_image_id,
-            'full',
-            false,
-            array(
-                'loading' => 'lazy',
-                'class'   => 'post-hero-banner__image'
-            )
-        );
-    elseif ($placeholder_blog_post_image):
-        echo wp_get_attachment_image(
-            $placeholder_blog_post_image['id'],
-            'full',
-            false,
-            array(
-                'loading' => 'lazy',
-                'class'   => 'post-hero-banner__image'
-            )
-        );
-    else:
-        echo "<img class='post-hero-banner__image'' src='".$placeholder_generic_image."' alt='Placeholder image'>";
-    endif; ?>
+    <picture class="post-hero-banner__image"> 
+        <?php
+        if($banner_image_id):
+            echo wp_get_attachment_image(
+                $banner_image_id,
+                'full',
+                false,
+                array(
+                    'loading' => 'lazy',
+                    'class'   => 'post-hero-banner__image'
+                )
+            );
+        elseif ($placeholder_blog_post_image):
+            echo wp_get_attachment_image(
+                $placeholder_blog_post_image['id'],
+                'full',
+                false,
+                array(
+                    'loading' => 'lazy',
+                    'class'   => 'post-hero-banner__image'
+                )
+            );
+        else:
+            echo "<img class='post-hero-banner__image'' src='".$placeholder_generic_image."' alt='Placeholder image'>";
+        endif; ?>
+    </picture>
+    
 </section>
 
 <!-- Blog Post Meta Information -->

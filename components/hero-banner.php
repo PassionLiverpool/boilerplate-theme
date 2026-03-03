@@ -3,15 +3,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
     // Text
-    $hero_banner_text = get_sub_field('hero_banner_text');
-    $header = get_field('header') ?? '';
     // If we are on a category archive, override with the category name
-    if (is_category()) {
-        $header = single_cat_title('', false);
-    }
 
-    $header_style = get_field('header_style') ?? 'h1';
     $wysiwyg_text = get_field('wysiwyg_text') ?? '';
+    
+    if(isset($wysiwyg_text) && !empty($wysiwyg_text)) {
+        $wysiwyg_text = $wysiwyg_text;
+    } elseif (is_category()) {
+        $wysiwyg_text = '<h1>' . single_cat_title('', false) . '</h1>';
+    } else if (is_home()) {
+        $wysiwyg_text = '<h1>' . get_the_title(get_option('page_for_posts')) . '</h1>';
+    } else {
+        $wysiwyg_text = "Page";
+    }
 
     // Buttons
     $primary_button = get_field('hero_banner_primary_button_button');
@@ -29,6 +33,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     // Settings
     $hide_hero_banner = get_field('hide_hero_banner') ?? false;
     include get_stylesheet_directory() . '/page-sections/section-fields/section-settings.php';
+    $fields = get_field_objects();
 ?>
 
 <?php if ($hide_hero_banner == false): ?>
@@ -52,15 +57,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
         <div class="container style--<?php echo $hero_banner_style; ?>">
 
-            <?php if ($header || $wysiwyg_text): ?>
+            <?php if ($wysiwyg_text): ?>
                 <!-- Text content -->
                 <div class="hero-banner__text font--<?php echo $font_colour; ?>">
-                    <!-- Header -->
-                    <?php if ( $header ) : ?>
-                        <<?php echo esc_attr( $header_style ); ?> class="hero-banner__header">
-                            <?php echo wp_kses_post( $header ); ?>
-                        </<?php echo esc_attr( $header_style ); ?>>
-                    <?php endif; ?>
 
                     <!-- WYSIWYG -->
                     <?php if ( $wysiwyg_text ) : ?>
