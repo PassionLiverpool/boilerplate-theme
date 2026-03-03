@@ -35,6 +35,18 @@
         color: white;
     }
 
+    &--secondary {
+        background-color: $grey;
+        color: black;
+    }
+
+    &--tertiary {
+        background-color: transparent;
+        color: $blue;
+        border: 2px solid $blue;
+    
+    }
+
     &:hover {
         filter: brightness(0.8);
     }
