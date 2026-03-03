@@ -1,11 +1,15 @@
 .hero-banner {
     position: relative;
     overflow: hidden;
-    padding: 3rem;
+    padding: 1rem;
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
     align-items: center;
+
+    @include responsive('md') {
+        padding: 3rem;
+    }
 
     .container {
         z-index: 2;
@@ -50,7 +54,7 @@
             .hero-banner__text{
                 width: max-content;
                 background: rgba(39, 24, 24, 0.5);
-                padding: 3rem;
+                padding: 2rem;
             }
 
             .audio-toggle {

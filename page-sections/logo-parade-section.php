@@ -2,6 +2,8 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
+    $section_class="logo-parade-section";
+
     // Logo Parade
     $logo_parade = get_sub_field('logos') ?? [];
 

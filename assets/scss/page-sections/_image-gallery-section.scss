@@ -6,9 +6,13 @@
 
 .image-gallery {
     padding: 0;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+    display: none;
+
+    @include responsive('md') {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
 
     &__item {
         list-style-type: none;
@@ -23,5 +27,17 @@
             height: 100%;
             object-fit: cover;
         }
+    }
+}
+
+.image-gallery-swiper {
+    display: block;
+
+    @include responsive('md') {
+        display: none !important;
+    }
+
+    .swiper-slide {
+        height: auto;
     }
 }
