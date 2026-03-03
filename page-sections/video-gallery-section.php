@@ -45,5 +45,24 @@ if ( ! defined( 'ABSPATH' ) ) {
                 <?php endforeach; ?>
             </ul>
 
+            <!-- Swiper on mobile -->
+            <div class="swiper video-gallery-swiper video-gallery">
+                <div class="swiper-wrapper">
+                    <?php
+                    foreach ($video_gallery as $video_item) :
+                        $video_url = $video_item['video'];
+                        $video_thumbnail = $video_item['video_thumbnail'];
+                    ?>
+                        <div class="swiper-slide video-gallery__item">
+                            <?php 
+                            $video = $video_url;
+                            include get_stylesheet_directory() . '/components/video.php'; 
+                            ?>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+
+                <div class="swiper-pagination"></div>
+            </div>
     </div>
 </section>

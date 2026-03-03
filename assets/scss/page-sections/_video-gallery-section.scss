@@ -6,12 +6,12 @@
 
 .video-gallery {
     padding: 0;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+    display: none;
 
     @include responsive('md'){
+        display: grid;
         grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
     }
 
     &__item {
@@ -26,5 +26,17 @@
             height: 100%;
             object-fit: cover;
         }
+    }
+}
+
+.video-gallery-swiper {
+    display: block;
+
+    @include responsive('md') {
+        display: none !important;
+    }
+
+    .swiper-slide {
+        height: auto;
     }
 }
