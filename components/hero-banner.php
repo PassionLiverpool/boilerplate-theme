@@ -2,10 +2,16 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
+    if ( is_home() && ! is_front_page() ) {
+        $posts_page_id = get_option('page_for_posts');
+    } else {
+        $posts_page_id = get_the_ID();
+    }
+
     // Text
     // If we are on a category archive, override with the category name
 
-    $wysiwyg_text = get_field('wysiwyg_text') ?? '';
+    $wysiwyg_text = get_field('wysiwyg_text', $posts_page_id) ?? '';
     
     if(isset($wysiwyg_text) && !empty($wysiwyg_text)) {
         $wysiwyg_text = $wysiwyg_text;
@@ -18,22 +24,21 @@ if ( ! defined( 'ABSPATH' ) ) {
     }
 
     // Buttons
-    $primary_button = get_field('hero_banner_primary_button_button');
-    $secondary_button = get_field('hero_banner_secondary_button_button');
+    $primary_button = get_field('hero_banner_primary_button_button', $posts_page_id);
+    $secondary_button = get_field('hero_banner_secondary_button_button', $posts_page_id);
 
     // Appearance
-    $hero_banner_style = get_field('hero_banner_style') ?? 'media-bottom';
-    $font_colour = get_field('hero_banner_font_colour') ?? 'black';
-    $background_colour = get_field('hero_banner_background_colour') ?? 'white';
-    $background_image_desktop = get_field('hero_banner_background_image_desktop');
-    $background_image_mobile = get_field('hero_banner_background_image_mobile');
-    $banner_video = get_field('hero_banner_video');
-    $banner_poster_image = get_field('hero_banner_poster_image');
+    $hero_banner_style = get_field('hero_banner_style', $posts_page_id) ?? 'media-bottom';
+    $font_colour = get_field('hero_banner_font_colour', $posts_page_id) ?? 'black';
+    $background_colour = get_field('hero_banner_background_colour', $posts_page_id) ?? 'white';
+    $background_image_desktop = get_field('hero_banner_background_image_desktop', $posts_page_id);
+    $background_image_mobile = get_field('hero_banner_background_image_mobile', $posts_page_id);
+    $banner_video = get_field('hero_banner_video', $posts_page_id);
+    $banner_poster_image = get_field('hero_banner_poster_image', $posts_page_id);
 
     // Settings
-    $hide_hero_banner = get_field('hide_hero_banner') ?? false;
+    $hide_hero_banner = get_field('hide_hero_banner', $posts_page_id) ?? false;
     include get_stylesheet_directory() . '/page-sections/section-fields/section-settings.php';
-    $fields = get_field_objects();
 ?>
 
 <?php if ($hide_hero_banner == false): ?>
