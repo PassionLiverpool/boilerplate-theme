@@ -1,6 +1,6 @@
 <div class="categories container">
 <ul class="categories__list">
-    <li class="categories__item <?php echo is_home() || is_page('our-blog') ? 'current-category' : ''; ?>">
+    <li class="categories__item <?php echo is_home() ? 'current-category' : ''; ?>">
       <a href="<?php echo get_permalink( get_option('page_for_posts') ); ?>">All</a>
     </li>
     <?php
