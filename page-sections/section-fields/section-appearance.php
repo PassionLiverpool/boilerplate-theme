@@ -1,4 +1,8 @@
 <?php
+    // Args
+    $disable_bg = $args['disable_background'] ?? false;
+
+    // Fields
     $section_appearance = get_sub_field('section_appearance');
     $background_colour = $section_appearance['background_colour'];
     $font_colour = $section_appearance['font_colour'];
@@ -10,7 +14,7 @@
 
     $style = '';
 
-    if ($background_image) {
+    if (!$disable_bg && $background_image) {
         $style .= "background-image:url('{$background_image['url']}');";
     }
 

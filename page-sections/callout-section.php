@@ -2,6 +2,8 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
+    $args = ['disable_background' => true];
+
     // Media
     $media_type = $content['media_type'] ?? 'none';
     $image = $content['image'] ?? '';
