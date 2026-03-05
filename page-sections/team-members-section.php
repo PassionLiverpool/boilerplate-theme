@@ -2,11 +2,6 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
-    $section_class="team-members-section";
-
-    // Header & Body Text
-    include get_stylesheet_directory() . '/page-sections/section-fields/section-text.php';
-
     // Appearance
     include get_stylesheet_directory() . '/page-sections/section-fields/section-appearance.php';
 
@@ -29,19 +24,24 @@ if ( ! defined( 'ABSPATH' ) ) {
     include get_stylesheet_directory() . '/page-sections/section-fields/section-settings.php';
 ?>
 
-<section class="<?php echo $section_class ?> background--<?php echo $background_colour ?>"
-         <?php if($html_id): ?>id="<?php echo $html_id; ?>"<?php endif; ?>
-         style="<?php if($background_image):?>background-image: url('<?php echo $background_image['url'] ?>'); <?endif;?>
-         padding-top: <?php echo $padding_top ?>rem;
-         padding-bottom: <?php echo $padding_bottom ?>rem;
-         margin-top: <?php echo $margin_top ?>rem;
-         margin-bottom: <?php echo $margin_bottom ?>rem"
+<section class="team-members-section background--<?php echo $background_colour ?>"
+    <?php if ($html_id) echo "id='{$html_id}'"; ?>
+    style="<?php echo esc_attr($style); ?>"
 >
     <div class="container style--<?php echo $content_section_style; ?>">
-        <div class="<?php echo $section_class ?>__content">
-            <!-- WYSIWYG and Buttons Introduction -->
-            <?php include get_stylesheet_directory() . '/page-sections/section-fields/section-introduction.php'; ?>
-            
+        <div class="team-members-section__content">
+        <!-- WYSIWYG and Buttons Introduction -->
+        <?php
+            get_template_part(
+                'page-sections/section-fields/section-introduction',
+                null,
+                [
+                    'section_class' => 'team-members-section',
+                    'font_colour'   => $font_colour ?? 'black',
+                    'content'       => null
+                ]
+            );
+        ?>            
             <!--  Team Members -->
             <?php if( $team_members ): ?>
                 <ul class="team-members">
@@ -51,5 +51,6 @@ if ( ! defined( 'ABSPATH' ) ) {
                 </ul>
                 <?php wp_reset_postdata(); ?>
             <?php endif; ?>
+        </div>
     </div>
 </section>

@@ -2,8 +2,6 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
-    $section_class="logo-parade-section";
-
     // Logo Parade
     $logo_parade = get_sub_field('logos') ?? [];
 
@@ -11,10 +9,10 @@ if ( ! defined( 'ABSPATH' ) ) {
     include get_stylesheet_directory() . '/page-sections/section-fields/section-settings.php';
 ?>
 
-<section class="<?php echo $section_class ?>"
+<section class="logo-parade-section"
          <?php if($html_id): ?>id="<?php echo $html_id; ?>"<?php endif; ?>
 >
-    <div class="<?php echo $section_class ?>__logos">
+    <div class="logo-parade-section__logos">
 
         <!-- Logo Parade -->
         <ul class="logo-parade">

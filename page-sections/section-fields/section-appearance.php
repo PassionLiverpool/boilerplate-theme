@@ -7,4 +7,15 @@
     $padding_bottom = $section_appearance['padding_bottom'];
     $margin_top = $section_appearance['margin_top'];
     $margin_bottom = $section_appearance['margin_bottom'];
+
+    $style = '';
+
+    if ($background_image) {
+        $style .= "background-image:url('{$background_image['url']}');";
+    }
+
+    $style .= "padding-top:{$padding_top}rem;";
+    $style .= "padding-bottom:{$padding_bottom}rem;";
+    $style .= "margin-top:{$margin_top}rem;";
+    $style .= "margin-bottom:{$margin_bottom}rem;";
 ?>

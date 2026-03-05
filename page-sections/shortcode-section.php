@@ -2,11 +2,6 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
-    $section_class="shortcode-section";
-
-    // Header & Body Text
-    include get_stylesheet_directory() . '/page-sections/section-fields/section-text.php';
-
     // Appearance
     include get_stylesheet_directory() . '/page-sections/section-fields/section-appearance.php';
 
@@ -18,22 +13,27 @@ if ( ! defined( 'ABSPATH' ) ) {
     include get_stylesheet_directory() . '/page-sections/section-fields/section-settings.php';
 ?>
 
-<section class="<?php echo $section_class ?> background--<?php echo $background_colour ?>"
-         <?php if($html_id): ?>id="<?php echo $html_id; ?>"<?php endif; ?>
-         style="<?php if($background_image):?>background-image: url('<?php echo $background_image['url'] ?>'); <?endif;?>
-         padding-top: <?php echo $padding_top ?>rem;
-         padding-bottom: <?php echo $padding_bottom ?>rem;
-         margin-top: <?php echo $margin_top ?>rem;
-         margin-bottom: <?php echo $margin_bottom ?>rem"
+<section class="shortcode-section background--<?php echo $background_colour ?>"
+    <?php if ($html_id) echo "id='{$html_id}'"; ?>
+    style="<?php echo esc_attr($style); ?>"
 >
     <div class="container style--<?php echo $shortcode_section_style; ?>">
 
         <!-- WYSIWYG and Buttons Introduction -->
-        <?php include get_stylesheet_directory() . '/page-sections/section-fields/section-introduction.php'; ?>
-
+        <?php
+            get_template_part(
+                'page-sections/section-fields/section-introduction',
+                null,
+                [
+                    'section_class' => 'shortcode-section',
+                    'font_colour'   => $font_colour ?? 'black',
+                    'content'       => null
+                ]
+            );
+        ?>
         <!-- shortcode -->
         <?php if($shortcode): ?>
-        <div class="<?php echo $section_class ?>__shortcode">
+        <div class="shortcode-section__shortcode">
             <?php echo do_shortcode( $shortcode ); ?>
         </div>
         <?php endif; ?>
