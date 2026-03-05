@@ -144,3 +144,12 @@ add_action('wp_footer', function() {
         echo $footer_scripts;
     }
 });
+
+// Disable wpautop for a specific WYSIWYG field
+add_filter('acf/format_value/type=wysiwyg', function($value, $post_id, $field) {
+    if ($field['name'] === 'wysiwyg_text') { // your field name
+        // Return content as-is, without wpautop
+        return $value;
+    }
+    return $value;
+}, 10, 3);

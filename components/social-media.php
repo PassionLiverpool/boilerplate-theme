@@ -5,7 +5,7 @@ $color = $color ?? 'white';
 ?>
 
 <?php if ($social_media_rows): ?>
-    <div class="social-media">
+    <span class="social-media">
         <?php foreach ($social_media_rows as $row): ?>
             <?php
             // The layout name corresponds to the platform slug
@@ -46,5 +46,5 @@ $color = $color ?? 'white';
             </a>
 
         <?php endforeach; ?>
-    </div>
+    </span>
 <?php endif; ?>

@@ -1,5 +1,5 @@
 <?php
-$content = $args['content'] ?? null;
+$content = get_sub_field('section_content');
 $font_colour = $args['font_colour'] ?? 'black';
 $section_class = $args['section_class'] ?? '';
 
@@ -12,6 +12,8 @@ if ($content) {
     $primary_button = get_sub_field('primary_button_button') ?? '';
     $secondary_button = get_sub_field('secondary_button_button') ?? '';
 }
+
+
 
 $has_wysiwyg = !empty(trim(wp_strip_all_tags($wysiwyg_text ?? '')));
 $has_primary_button = !empty($primary_button['url']);

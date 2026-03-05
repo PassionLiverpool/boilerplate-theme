@@ -29,8 +29,6 @@ function mytheme_social_media_shortcode( $atts ) {
     // Make shortcode attributes available inside the included component
     $color = sanitize_text_field( $atts['color'] );
 
-    ob_start(); // Start output buffering
-
     $component_path = get_stylesheet_directory() . '/components/social-media.php';
 
     if ( file_exists( $component_path ) ) {
@@ -111,13 +109,12 @@ function display_business_name( $atts ) {
     // Make shortcode attributes available inside the included component
     $color = sanitize_text_field( $atts['color'] );
 
-    ob_start(); // Start output buffering
 
     if (empty($name)) {
         return '';
     }
 
-    return '<div class="business-name business-name--'.esc_html($color).'">'.wp_kses_post($name).'</div>';
+    return '<span class="business-name business-name--'.esc_html($color).'">'.esc_html($name).'</span>';
 }
 add_shortcode('business_name', 'display_business_name');
 
@@ -140,13 +137,11 @@ function display_business_address( $atts ) {
     // Make shortcode attributes available inside the included component
     $color = sanitize_text_field( $atts['color'] );
 
-    ob_start(); // Start output buffering
-
     if (empty($address)) {
         return '';
     }
 
-    return '<div class="business-address business-address--'.esc_html($color).'"><p>'.wp_kses_post($address).'</p></div>';
+    return '<span class="business-address business-address--'.esc_html($color).'">'.wp_kses_post($address).'</span>';
 }
 add_shortcode('business_address', 'display_business_address');
 
@@ -172,7 +167,7 @@ function display_business_opening_hours( $atts ) {
     if (empty($opening_hours)) {
         return '';
     }
-    return '<div class="business-opening-hours business-opening-hours--'.$color.'"><p>'.wp_kses_post($opening_hours).'</p></div>';
+    return '<span class="business-opening-hours business-opening-hours--'.$color.'">'.wp_kses_post($opening_hours).'</span>';
 }
 add_shortcode('business_opening_hours', 'display_business_opening_hours');
 
@@ -199,7 +194,7 @@ function display_business_phone_number($atts) {
         return '';
     }
 
-    return '<div class="business-phone-number business-phone-number--'.$color.'"><a href="tel:'.esc_attr($phone_number).'">'.esc_html($phone_number).'</a></div>';
+    return '<span class="business-phone-number business-phone-number--'.$color.'"><a href="tel:'.esc_attr($phone_number).'">'.esc_html($phone_number).'</a></span>';
 }
 add_shortcode('business_phone_number', 'display_business_phone_number');
 
@@ -226,6 +221,6 @@ function display_business_email($atts) {
         return '';
     }
 
-    return '<div class="business-email business-email--'.$color.'"><a href="mailto:'.esc_attr($email).'">'.esc_html($email).'</a></div>';
+    return '<span class="business-email business-email--'.$color.'"><a href="mailto:'.esc_attr($email).'">'.esc_html($email).'</a></span>';
 }
 add_shortcode('business_email', 'display_business_email');
