@@ -13,8 +13,6 @@ if ($content) {
     $secondary_button = get_sub_field('secondary_button_button') ?? '';
 }
 
-
-
 $has_wysiwyg = !empty(trim(wp_strip_all_tags($wysiwyg_text ?? '')));
 $has_primary_button = !empty($primary_button['url']);
 $has_secondary_button = !empty($secondary_button['url']);
