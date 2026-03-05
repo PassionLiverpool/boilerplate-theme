@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 
 <section class="logo-parade-section"
-         <?php if($html_id): ?>id="<?php echo $html_id; ?>"<?php endif; ?>
+    <?php if($html_id): ?>id="<?php echo $html_id; ?>"<?php endif; ?>
 >
     <div class="logo-parade-section__logos">
 

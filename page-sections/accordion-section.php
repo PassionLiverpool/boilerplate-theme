@@ -13,7 +13,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 
 <section class="accordion-section background--<?php echo $background_colour ?>"
-    <?php if($html_id): ?>id="<?php echo $html_id; ?>"<?php endif; ?>
     <?php if ($html_id) echo "id='{$html_id}'"; ?>
     style="<?php echo esc_attr($style); ?>"
 >
