@@ -20,28 +20,26 @@ function mytheme_social_media_shortcode( $atts ) {
     $atts = shortcode_atts(
         [
             'color' => 'black',
-            'color' => 'white'
+            'color' => 'white',
         ],
         $atts,
         'social_media'
     );
-    
-    // Make shortcode attributes available inside the included component
-    $color = sanitize_text_field( $atts['color'] );
-
-    ob_start(); // Start output buffering
+    $color = sanitize_text_field($atts['color']);
 
     $component_path = get_stylesheet_directory() . '/components/social-media.php';
+    if (!file_exists($component_path)) return '';
 
-    if ( file_exists( $component_path ) ) {
-        include $component_path;
-    } else {
-        echo '<!-- social-media.php not found -->';
-    }
+    // Start output buffering
+    ob_start();
 
-    return ob_get_clean(); // Return the buffered content
+    // Make $color available in template
+    include $component_path;
+
+    // Return buffered content, trimmed to avoid whitespace issues
+    return trim(ob_get_clean());
 }
-add_shortcode( 'social_media', 'mytheme_social_media_shortcode' );
+add_shortcode('social_media', 'mytheme_social_media_shortcode');
 
 /**
  * Shortcode: [business_logo]
@@ -111,8 +109,6 @@ function display_business_name( $atts ) {
     // Make shortcode attributes available inside the included component
     $color = sanitize_text_field( $atts['color'] );
 
-    ob_start(); // Start output buffering
-
     if (empty($name)) {
         return '';
     }
@@ -139,8 +135,6 @@ function display_business_address( $atts ) {
     
     // Make shortcode attributes available inside the included component
     $color = sanitize_text_field( $atts['color'] );
-
-    ob_start(); // Start output buffering
 
     if (empty($address)) {
         return '';
