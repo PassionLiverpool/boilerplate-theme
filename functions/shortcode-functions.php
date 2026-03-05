@@ -29,6 +29,8 @@ function mytheme_social_media_shortcode( $atts ) {
     // Make shortcode attributes available inside the included component
     $color = sanitize_text_field( $atts['color'] );
 
+    ob_start(); // Start output buffering
+
     $component_path = get_stylesheet_directory() . '/components/social-media.php';
 
     if ( file_exists( $component_path ) ) {
@@ -109,6 +111,7 @@ function display_business_name( $atts ) {
     // Make shortcode attributes available inside the included component
     $color = sanitize_text_field( $atts['color'] );
 
+    ob_start(); // Start output buffering
 
     if (empty($name)) {
         return '';
@@ -136,6 +139,8 @@ function display_business_address( $atts ) {
     
     // Make shortcode attributes available inside the included component
     $color = sanitize_text_field( $atts['color'] );
+
+    ob_start(); // Start output buffering
 
     if (empty($address)) {
         return '';
