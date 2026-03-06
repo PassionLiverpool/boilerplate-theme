@@ -6,18 +6,6 @@ jQuery(function ($) {
 }); // jQuery End
 
 document.addEventListener("DOMContentLoaded", () => {
-    // Basic lightbox
-    const galleryItems = document.querySelectorAll('.gallery-image');
-
-    galleryItems.forEach(img => {
-        img.addEventListener('click', () => {
-            const fullSrc = img.getAttribute('data-full');
-            const instance = basicLightbox.create(`
-                <img src="${fullSrc}" width="1400" height="900" alt="">
-            `);
-            instance.show();
-        });
-    });
 
     // Video banner - toggle audio
     const video_banner = document.querySelector('.hero-banner__video');
