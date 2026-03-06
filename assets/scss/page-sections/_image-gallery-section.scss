@@ -6,17 +6,18 @@
 
 .image-gallery {
     padding: 0;
-    display: none;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1rem;
 
     @include responsive('md') {
-        display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 1rem;
     }
 
     &__item {
         list-style-type: none;
         transition: filter 0.3s ease;
+        height: 18.75rem;
 
         &:hover {
             filter: brightness(0.8);
@@ -31,13 +32,7 @@
 }
 
 .image-gallery-swiper {
-    display: block;
-
-    @include responsive('md') {
-        display: none !important;
-    }
-
     .swiper-slide {
-        height: auto;
+        height: 18.75rem;
     }
 }

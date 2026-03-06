@@ -7,6 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
     // Image Gallery
     $image_gallery = get_sub_field('image_gallery') ?? [];
+    $image_gallery_mode = get_sub_field('image_gallery_mode') ?? 'grid';
 
     // Settings
     include get_stylesheet_directory() . '/page-sections/section-fields/section-settings.php';
@@ -37,7 +38,9 @@ if ( ! defined( 'ABSPATH' ) ) {
                 ]
             );
         ?>
-            <!-- Gallery Images -->
+
+        <?php if($image_gallery_mode == "grid"): ?>
+            <!-- Gallery Images Grid -->
             <ul class="image-gallery">
                 <?php foreach ( $image_gallery as $image ) : 
                     $full = wp_get_attachment_image_src($image['id'], 'full')[0]; ?>
@@ -52,9 +55,10 @@ if ( ! defined( 'ABSPATH' ) ) {
                     </li>
                 <?php endforeach; ?>
             </ul>
-
-            <!-- Swiper on mobile -->
-            <div class="swiper image-gallery-swiper image-gallery">
+        
+        <?php elseif($image_gallery_mode == "swiper"): ?>
+            <!-- Image Gallery Swiper -->
+            <div class="swiper image-gallery-swiper">
                 <div class="swiper-wrapper">
 
                     <?php foreach ($image_gallery as $image) :
@@ -75,6 +79,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
                 <div class="swiper-pagination"></div>
             </div>
+        <?php endif; ?>
+
         </div>
     </div>
 </section>

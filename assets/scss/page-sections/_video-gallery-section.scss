@@ -6,12 +6,12 @@
 
 .video-gallery {
     padding: 0;
-    display: none;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1rem;
 
     @include responsive('md'){
-        display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 1rem;
     }
 
     &__item {
@@ -30,12 +30,6 @@
 }
 
 .video-gallery-swiper {
-    display: block;
-
-    @include responsive('md') {
-        display: none !important;
-    }
-
     .swiper-slide {
         height: auto;
     }

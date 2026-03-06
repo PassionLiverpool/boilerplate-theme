@@ -47,7 +47,7 @@ if ( ! defined( 'ABSPATH' ) ) {
             </ul>
 
             <!-- Swiper on mobile -->
-            <div class="swiper video-gallery-swiper video-gallery">
+            <div class="swiper video-gallery-swiper">
                 <div class="swiper-wrapper">
                     <?php
                     foreach ($video_gallery as $video_item) :
