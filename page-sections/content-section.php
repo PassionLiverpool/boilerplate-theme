@@ -2,6 +2,8 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }    
+    $content = get_sub_field('section_content');
+    
     // Media
     $media_type = $content['media_type'] ?? 'none';
     $image = $content['image'] ?? '';
