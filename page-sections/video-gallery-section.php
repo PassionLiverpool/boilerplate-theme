@@ -31,40 +31,27 @@ if ( ! defined( 'ABSPATH' ) ) {
                 ]
             );
         ?>
-            <!-- Gallery Videos -->
-            <ul class="video-gallery">
-                <?php foreach ( $video_gallery as $video_item ) : 
+
+        <!-- Video Gallery -->
+        <div class="swiper video-gallery-swiper">
+            <div class="swiper-wrapper">
+                <?php
+                foreach ($video_gallery as $video_item) :
                     $video_url = $video_item['video'];
                     $video_thumbnail = $video_item['video_thumbnail'];
                 ?>
-                    <li class="video-gallery__item">
+                    <div class="swiper-slide video-gallery__item">
                         <?php 
                         $video = $video_url;
                         include get_stylesheet_directory() . '/components/video.php'; 
                         ?>
-                    </li>
+                    </div>
                 <?php endforeach; ?>
-            </ul>
-
-            <!-- Swiper on mobile -->
-            <div class="swiper video-gallery-swiper">
-                <div class="swiper-wrapper">
-                    <?php
-                    foreach ($video_gallery as $video_item) :
-                        $video_url = $video_item['video'];
-                        $video_thumbnail = $video_item['video_thumbnail'];
-                    ?>
-                        <div class="swiper-slide video-gallery__item">
-                            <?php 
-                            $video = $video_url;
-                            include get_stylesheet_directory() . '/components/video.php'; 
-                            ?>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
-
-                <div class="swiper-pagination"></div>
             </div>
+
+            <div class="swiper-pagination"></div>
+        </div>
+
         </div>
     </div>
 </section>
