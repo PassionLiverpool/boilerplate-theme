@@ -125,26 +125,6 @@ function render_theme_page_sections( $post_id = null ) {
     echo get_theme_page_sections_html( $post_id );
 }
 
-/**
- * Output ACF site options scripts in the header
- */
-add_action('wp_head', function() {
-    $header_scripts = get_field('header_scripts', 'option');
-    if ( $header_scripts ) {
-        echo $header_scripts; // allows safe HTML/JS output
-    }
-});
-
-/**
- * Output ACF site options scripts in the footer
- */
-add_action('wp_footer', function() {
-    $footer_scripts = get_field('footer_scripts', 'option');
-    if ( $footer_scripts ) {
-        echo $footer_scripts;
-    }
-});
-
 // Disable wpautop for a specific WYSIWYG field
 add_filter('acf/format_value/type=wysiwyg', function($value, $post_id, $field) {
     if ($field['name'] === 'wysiwyg_text') { // your field name
