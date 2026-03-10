@@ -2,6 +2,19 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
+    // Placeholder image
+    $placeholder_url = get_stylesheet_directory_uri() . '/assets/img/placeholder-images/placeholder-image.jpg';
+
+    $placeholder_image = [
+        'url' => $placeholder_url,
+        'sizes' => [
+            'large' => $placeholder_url
+        ],
+        'width' => 1800,
+        'height' => 640,
+        'alt' => 'Placeholder image'
+    ];
+    
     if ( is_home() && ! is_front_page() ) {
         $posts_page_id = get_option('page_for_posts');
     } else {
@@ -10,7 +23,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
     // Text
     // If we are on a category archive, override with the category name
-
     $wysiwyg_text = get_field('wysiwyg_text', $posts_page_id) ?? '';
     
     if(isset($wysiwyg_text) && !empty($wysiwyg_text)) {
@@ -31,8 +43,8 @@ if ( ! defined( 'ABSPATH' ) ) {
     $hero_banner_style = get_field('hero_banner_style', $posts_page_id) ?? 'media-bottom';
     $font_colour = get_field('hero_banner_font_colour', $posts_page_id) ?? 'black';
     $background_colour = get_field('hero_banner_background_colour', $posts_page_id) ?? 'white';
-    $background_image_desktop = get_field('hero_banner_background_image_desktop', $posts_page_id);
-    $background_image_mobile = get_field('hero_banner_background_image_mobile', $posts_page_id);
+    $background_image_desktop = get_field('hero_banner_background_image_desktop', $posts_page_id) ?: $placeholder_image;
+    $background_image_mobile = get_field('hero_banner_background_image_mobile', $posts_page_id) ?: $placeholder_image;
     $banner_video = get_field('hero_banner_video', $posts_page_id);
     $banner_poster_image = get_field('hero_banner_poster_image', $posts_page_id);
 
@@ -45,7 +57,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     <header class="hero-banner style--<?php echo $hero_banner_style; ?> <?php if($background_colour && $hero_banner_style=='simple'): ?>background--<?php echo $background_colour ?><?php endif; ?>"
             <?php if($html_id): ?>id="<?php echo $html_id; ?>"<?php endif; ?>
     >
-        <?php if ($background_image_desktop && $hero_banner_style === 'secondary'): ?>
+        <?php if ($background_image_desktop && $hero_banner_style === 'image'): ?>
             <picture class="hero-banner__bg-image">
                 <source
                 srcset="<?php echo esc_url($background_image_mobile['url']); ?>"
