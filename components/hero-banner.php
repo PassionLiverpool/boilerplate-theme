@@ -42,7 +42,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 
 <?php if ($hide_hero_banner == false): ?>
-    <header class="hero-banner style--<?php echo $hero_banner_style; ?> <?php if($background_colour && $hero_banner_style=='primary'): ?>background--<?php echo $background_colour ?><?php endif; ?>"
+    <header class="hero-banner style--<?php echo $hero_banner_style; ?> <?php if($background_colour && $hero_banner_style=='simple'): ?>background--<?php echo $background_colour ?><?php endif; ?>"
             <?php if($html_id): ?>id="<?php echo $html_id; ?>"<?php endif; ?>
     >
         <?php if ($background_image_desktop && $hero_banner_style === 'secondary'): ?>
@@ -95,7 +95,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         </div>
 
         <!-- Video -->
-        <?php if ( $banner_video && $hero_banner_style == 'tertiary' ) : ?>
+        <?php if ( $banner_video && $hero_banner_style == 'video' ) : ?>
             <div class="hero-banner__video">
                 <?php
                     $video = $banner_video;

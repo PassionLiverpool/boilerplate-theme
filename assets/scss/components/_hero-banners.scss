@@ -23,7 +23,7 @@
     }
 
     &.style {
-        &--secondary {
+        &--image {
             min-height: 40rem;
             padding: 0;
 
@@ -48,7 +48,7 @@
             }
         }
 
-        &--tertiary {
+        &--video {
             min-height: 80vh;
 
             .hero-banner__text{
