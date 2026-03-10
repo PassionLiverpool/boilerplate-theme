@@ -12,8 +12,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 
     // Appearance
     $callout_section_style = get_sub_field('callout_section_style') ?? 'media-bottom';
+    $disable_background = true;
     include get_stylesheet_directory() . '/page-sections/section-fields/section-appearance.php';
-
+    unset($disable_background);
+    
     // Settings
     include get_stylesheet_directory() . '/page-sections/section-fields/section-settings.php';
 ?>

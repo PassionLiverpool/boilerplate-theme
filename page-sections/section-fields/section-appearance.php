@@ -1,6 +1,6 @@
 <?php
     // Args
-    $disable_bg = $args['disable_background'] ?? false;
+    $disable_bg = $disable_background ?? false;
 
     // Fields
     $section_appearance = get_sub_field('section_appearance');
