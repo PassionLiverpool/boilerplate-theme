@@ -113,6 +113,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                     muted
                     loop
                     playsinline
+                    fetchpriority="high"
                     poster="<?php echo esc_url( wp_get_attachment_image_url( $banner_poster_image['ID'], 'large' ) ); ?>"
                 >
                     <source src="<?php echo $video ?>" type="video/mp4">

@@ -28,6 +28,15 @@ function bootscore_child_enqueue_styles() {
         ['parent-style'],
         filemtime(get_stylesheet_directory() . '/assets/css/main.min.css')
     );
+    wp_style_add_data('main', 'media', 'print');
+    wp_style_add_data('main', 'onload', "this.media='all'");
+
+    // Only dequeue Dashicons on the front-end for non-logged-in users
+    add_action('wp_enqueue_scripts', function() {
+        if ( ! is_admin() && ! is_user_logged_in() ) {
+            wp_dequeue_style('dashicons');
+        }
+    }, 100);
 
     // Custom JS
     $custom_js_ver = date('YmdHi', filemtime(get_stylesheet_directory() . '/assets/js/custom.min.js'));

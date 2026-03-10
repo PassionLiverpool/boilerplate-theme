@@ -1,5 +1,4 @@
 <?php
-    // Args
     $disable_bg = $disable_background ?? false;
 
     // Fields

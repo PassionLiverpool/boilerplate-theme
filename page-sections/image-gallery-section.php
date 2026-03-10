@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
     // Image Gallery
     $image_gallery = get_sub_field('image_gallery') ?? [];
-    $image_gallery_mode = get_sub_field('image_gallery_mode') ?? 'grid';
+    $image_gallery_mode = get_sub_field('image_gallery_mode') ?: 'grid';
 
     // Settings
     include get_stylesheet_directory() . '/page-sections/section-fields/section-settings.php';
@@ -46,7 +46,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                     $full = wp_get_attachment_image_src($image['id'], 'full')[0]; ?>
                     <li class="image-gallery__item">
                             <img 
-                                src="<?php echo esc_url( $image['sizes']['medium'] ); ?>" 
+                                src="<?php echo esc_url( $image['sizes']['large-post-thumbnail'] ); ?>" 
                                 alt="<?php echo esc_attr( $image['alt'] ); ?>" 
                                 data-lightbox="<?php echo esc_url( $full ); ?>" 
                                 class="gallery-image"
@@ -66,7 +66,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                     ?>
                     <div class="swiper-slide image-gallery__item">
                         <img
-                        src="<?php echo esc_url($image['sizes']['medium']); ?>"
+                        src="<?php echo esc_url($image['sizes']['large-post-thumbnail']); ?>"
                         alt="<?php echo esc_attr($image['alt']); ?>"
                         data-lightbox="<?php echo esc_url($full); ?>"
                         loading="lazy"
