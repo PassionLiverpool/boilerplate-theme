@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     include get_stylesheet_directory() . '/page-sections/section-fields/section-settings.php';
 ?>
 
-<section class="logo-parade-section"
+<div class="logo-parade-section"
     <?php if($html_id): ?>id="<?php echo $html_id; ?>"<?php endif; ?>
 >
     <div class="logo-parade-section__logos">
@@ -32,4 +32,4 @@ if ( ! defined( 'ABSPATH' ) ) {
             <?php endforeach; ?>
         </ul>
     </div>
-</section>
+</div>
