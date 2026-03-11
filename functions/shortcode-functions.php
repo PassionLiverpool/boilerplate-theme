@@ -193,7 +193,9 @@ function display_business_phone_number($atts) {
         return '';
     }
 
-    return '<span class="business-phone-number business-phone-number--'.$color.'"><a href="tel:'.esc_attr($phone_number).'">'.esc_html($phone_number).'</a></span>';
+    $phone_number_clean = preg_replace('/[^0-9+]/', '', $phone_number);
+
+    return '<span class="business-phone-number business-phone-number--'.$color.'"><a href="tel:'.esc_attr($phone_number_clean).'">'.esc_html($phone_number).'</a></span>';
 }
 add_shortcode('business_phone_number', 'display_business_phone_number');
 
