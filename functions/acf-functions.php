@@ -12,11 +12,36 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @version 6.0.0
  */
 
-// Disable both Gutenberg and the Classic editor for pages.
-add_action( 'init', function() {
-    remove_post_type_support( 'page', 'editor' );
-    remove_post_type_support( 'team-member', 'editor' );
-    remove_post_type_support( 'testimonial', 'editor' );
+// Disable Gutenberg for all pages except the Gutenberg template
+add_filter('use_block_editor_for_post', function ($use_block_editor, $post) {
+
+    if ($post->post_type !== 'page') {
+        return $use_block_editor;
+    }
+
+    $template = get_page_template_slug($post->ID);
+
+    if ($template === 'page-templates/gutenberg.php') {
+        return true; // Enable Gutenberg
+    }
+
+    return false; // Disable Gutenberg everywhere else
+
+}, 10, 2);
+
+// Hide classic editor on all pages except Gutenberg template
+add_action('add_meta_boxes', function () {
+
+    global $post;
+
+    if (!$post || $post->post_type !== 'page') {
+        return;
+    }
+
+    if (get_page_template_slug($post->ID) !== 'page-templates/gutenberg.php') {
+        remove_post_type_support('page', 'editor');
+    }
+
 });
 
 add_action( 'wp_enqueue_scripts', function() {
